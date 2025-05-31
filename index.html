@@ -1,215 +1,491 @@
-
-
-
-<!--  ⚠️ THIS PAGE IS A GUIDE ON HOW TO USE RAFFAELLO -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>raffaello Tutorial</title>
+    <title>HeroPass - Support Local Businesses & Get Exclusive Rewards</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .arrow {
-            position: absolute;
-            width: 100px;
-            height: 30px;
-            background-color: #3b82f6;
-            clip-path: polygon(0 40%, 80% 40%, 80% 20%, 100% 50%, 80% 80%, 80% 60%, 0 60%);
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
         }
-        .tutorial-card {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
-        .tutorial-card:hover {
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .icon-container {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background-color: #e0f2fe;
+        .donation-pool {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
         }
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen p-8">
-    <div class="max-w-6xl mx-auto">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-blue-600 mb-4">Welcome jbrahms3,</h1>
-            <p class="text-xl text-gray-600">Here is a quick guide on how to use raffaello</p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- File Management -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="files" class="text-blue-500"></i>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-crown text-indigo-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Hero<span class="text-indigo-600">Pass</span></span>
                     </div>
-                    <h3 class="text-xl font-semibold">1. File Management</h3>
                 </div>
-                <p class="text-gray-600 mb-4">Start by creating a new file or selecting an existing one from your project.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="folder-open-dot" class="mr-2"></i>
-                    <span>Files Explorer</span>
-                </div>
-                <div class="arrow" style="right: -80px; top: 50px; transform: rotate(90deg);"></div>
-            </div>
-
-            <!-- Code Editor -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="code" class="text-blue-500"></i>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="#features" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                        <a href="#how-it-works" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">How It Works</a>
+                        <a href="#businesses" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Businesses</a>
+                        <a href="#pricing" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
+                        <a href="#faq" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">FAQ</a>
                     </div>
-                    <h3 class="text-xl font-semibold">2. Code Editor</h3>
                 </div>
-                <p class="text-gray-600 mb-4">Edit your code with our powerful editor. See changes instantly in the preview.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="code" class="mr-2"></i>
-                    <span>Code Tab</span>
-                </div>
-            </div>
-
-            <!-- Visual Editor -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="mouse-pointer-click" class="text-blue-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">3. Visual Editing</h3>
-                </div>
-                <p class="text-gray-600 mb-4">Toggle the selector tool to edit elements visually. Changes reflect in code.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="mouse-pointer-click" class="mr-2"></i>
-                    <span>Selector Tool</span>
-                </div>
-            </div>
-
-            <!-- AI Assistance -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="circle-user" class="text-blue-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">4. AI Assistance</h3>
-                </div>
-                <p class="text-gray-600 mb-4">Ask our AI chatbot for help with code, design, or any questions.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="message-circle" class="mr-2"></i>
-                    <span>AI Chat (Bottom Left)</span>
-                </div>
-            </div>
-
-            <!-- Save Changes -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="save" class="text-blue-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">5. Save Your Work</h3>
-                </div>
-                <p class="text-gray-600 mb-4">Regularly save your changes to preserve your progress.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="save" class="mr-2"></i>
-                    <span>Save Button</span>
-                </div>
-            </div>
-
-            <!-- GitHub Integration -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="github" class="text-blue-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">6. GitHub Integration</h3>
-                </div>
-                <p class="text-gray-600 mb-4">Push changes to GitHub, deploy to Pages, and manage branches.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="github" class="mr-2"></i>
-                    <span>GitHub Section</span>
-                </div>
-            </div>
-
-            <!-- Branch Management -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="git-branch" class="text-blue-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">7. Branch Management</h3>
-                </div>
-                <p class="text-gray-600 mb-4">Create and switch between branches for different features.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="git-branch" class="mr-2"></i>
-                    <span>Branch Selector (Bottom Right)</span>
-                </div>
-            </div>
-
-            <!-- Deployment -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="github" class="text-blue-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">8. Deployment</h3>
-                </div>
-                <p class="text-gray-600 mb-4">Deploy to GitHub Pages to see your website live on the internet.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="globe" class="mr-2"></i>
-                    <span>Deploy Button</span>
-                </div>
-            </div>
-
-            <!-- Credits -->
-            <div class="tutorial-card bg-white rounded-xl p-6 relative">
-                <div class="flex items-center mb-4">
-                    <div class="icon-container mr-4">
-                        <i data-lucide="coins" class="text-blue-500"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">9. Credit System</h3>
-                </div>
-                <p class="text-gray-600 mb-4">Track and top up your credits for AI features and premium tools.</p>
-                <div class="flex items-center text-sm text-blue-600">
-                    <i data-lucide="coins" class="mr-2"></i>
-                    <span>Credit Tracker (Bottom Right)</span>
+                <div class="flex items-center">
+                    <a href="#pricing" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">Get Started</a>
                 </div>
             </div>
         </div>
+    </nav>
 
-        <div class="mt-16 bg-white rounded-xl p-8 text-center">
-            <h2 class="text-2xl font-bold text-blue-600 mb-4">Quick Start Guide</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
-                <div class="flex items-center">
-                    <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">1</div>
-                    <span>Create/Select File</span>
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Unlock Local Rewards & <span class="text-yellow-300">Support</span> Your Community</h1>
+                    <p class="text-xl mb-8">Get exclusive discounts at local businesses while contributing to a pooled fund that gives back to your favorite spots.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#pricing" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition duration-300 text-center pulse-animation">Join Now</a>
+                        <a href="#how-it-works" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-indigo-600 transition duration-300 text-center">Learn More</a>
+                    </div>
                 </div>
-                <i data-lucide="arrow-right" class="hidden md:block text-gray-400"></i>
-                <div class="flex items-center">
-                    <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">2</div>
-                    <span>Edit Code or Visually</span>
-                </div>
-                <i data-lucide="arrow-right" class="hidden md:block text-gray-400"></i>
-                <div class="flex items-center">
-                    <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center mr-2">3</div>
-                    <span>Save & Deploy</span>
+                <div class="md:w-1/2 relative">
+                    <div class="bg-white rounded-xl p-6 shadow-2xl text-gray-800 max-w-md mx-auto">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-store text-indigo-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Your Last Reward</h3>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-600">The Coffee Corner</span>
+                            <span class="font-bold">20% OFF</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-600">Pizza Palace</span>
+                            <span class="font-bold">Free Drink</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-600">Urban Bookshop</span>
+                            <span class="font-bold">15% OFF</span>
+                        </div>
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <p class="text-sm text-indigo-600 font-medium">Your membership helped <span class="font-bold">Book Nook</span> receive a $500 donation!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
         </div>
-        <footer class="mt-16 text-center text-gray-500 text-sm">
-            <p class="mt-2">© 2025 raffaello Editor. All rights reserved.</p>
-        </footer>
     </div>
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html> 
+
+    <!-- Stats Section -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-4xl font-bold text-indigo-600 mb-2">5,000+</h3>
+                    <p class="text-gray-600">Active Members</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-4xl font-bold text-indigo-600 mb-2">$250K+</h3>
+                    <p class="text-gray-600">Donated to Local Businesses</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="text-4xl font-bold text-indigo-600 mb-2">1,200+</h3>
+                    <p class="text-gray-600">Partner Businesses</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">More Than Just Discounts</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">HeroPass connects you with your community while making a real difference.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300 transform">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tag text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Exclusive Discounts</h3>
+                    <p class="text-gray-600">Unlock special offers at your favorite local spots that non-members don't get.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300 transform">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hand-holding-heart text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Community Impact</h3>
+                    <p class="text-gray-600">Your subscription directly supports local businesses through our pooled donation system.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300 transform">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-gem text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Premium Perks</h3>
+                    <p class="text-gray-600">Enjoy VIP treatment at partner locations with priority access and special events.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300 transform">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Digital Convenience</h3>
+                    <p class="text-gray-600">Manage all your rewards and track your community impact through our easy-to-use app.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300 transform">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-random text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Surprise Rewards</h3>
+                    <p class="text-gray-600">Get random bonus perks and upgrades at checkout just for being a HeroPass member.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md transition duration-300 transform">
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Track Your Impact</h3>
+                    <p class="text-gray-600">See how much you've saved and which businesses you've helped support with your membership.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <div id="how-it-works" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">How HeroPass Works</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">A simple process with powerful results for you and your community</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-indigo-600 font-bold text-2xl">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Join HeroPass</h3>
+                    <p class="text-gray-600">Sign up for a membership and select a subscription plan that fits your lifestyle.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-indigo-600 font-bold text-2xl">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Get Rewards</h3>
+                    <p class="text-gray-600">Receive exclusive discounts and perks at local businesses in your area.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-indigo-600 font-bold text-2xl">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Make an Impact</h3>
+                    <p class="text-gray-600">Each purchase enters businesses into a draw for pooled donations from members.</p>
+                </div>
+            </div>
+            <div class="donation-pool text-white rounded-2xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">Our Donation Pool System</h3>
+                <p class="mb-6">Every HeroPass membership contributes to our pooled fund. Each time you make a purchase at a partner business:</p>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle mt-1 mr-2 text-yellow-300"></i>
+                        <span>The business is entered into our monthly donation lottery</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle mt-1 mr-2 text-yellow-300"></i>
+                        <span>5% of your purchase goes into the pooled fund</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle mt-1 mr-2 text-yellow-300"></i>
+                        <span>Winning businesses receive surprise donations (typically $500-$2000)</span>
+                    </li>
+                </ul>
+                <p class="text-sm">* Donation amounts vary based on pool size and number of members in your area.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Business Section -->
+    <div id="businesses" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Partner Businesses</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover some of your favorite local spots that accept HeroPass</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-coffee text-6xl text-indigo-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">The Coffee Corner</h3>
+                        <p class="text-gray-600 mb-4">10% off all drinks for HeroPass members</p>
+                        <div class="flex items-center text-sm text-indigo-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>0.3 miles away</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-hamburger text-6xl text-indigo-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Burger Joint</h3>
+                        <p class="text-gray-600 mb-4">Free side with any entree purchase</p>
+                        <div class="flex items-center text-sm text-indigo-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>0.7 miles away</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-book text-6xl text-indigo-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Urban Bookshop</h3>
+                        <p class="text-gray-600 mb-4">15% off all purchases</p>
+                        <div class="flex items-center text-sm text-indigo-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>1.2 miles away</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-tshirt text-6xl text-indigo-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Local Threads</h3>
+                        <p class="text-gray-600 mb-4">$10 off purchases over $50</p>
+                        <div class="flex items-center text-sm text-indigo-600">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>0.5 miles away</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300">View All Partner Businesses</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose the plan that works best for your lifestyle</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300">
+                    <h3 class="text-xl font-bold mb-2">Local Hero</h3>
+                    <p class="text-gray-600 mb-6">Perfect for occasional shoppers</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$9</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>Access to all partner discounts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>5% contribution to donation pool</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>Basic reward offers</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block text-center bg-indigo-100 text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-200 transition duration-300">Select Plan</a>
+                </div>
+                <div class="bg-indigo-600 text-white rounded-xl p-8 shadow-xl transform scale-105">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold">Community Champion</h3>
+                        <span class="bg-yellow-300 text-indigo-800 text-xs font-bold px-2 py-1 rounded">POPULAR</span>
+                    </div>
+                    <p class="text-indigo-100 mb-6">Best for regular supporters</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$19</span>
+                        <span class="text-indigo-200">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-300 mt-1 mr-2"></i>
+                            <span>All Local Hero benefits</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-300 mt-1 mr-2"></i>
+                            <span>Enhanced discounts (15-30% off)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-300 mt-1 mr-2"></i>
+                            <span>10% contribution to donation pool</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-300 mt-1 mr-2"></i>
+                            <span>VIP priority at select locations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-300 mt-1 mr-2"></i>
+                            <span>Double entries for donation draws</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block text-center bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">Select Plan</a>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transition duration-300">
+                    <h3 class="text-xl font-bold mb-2">City Superhero</h3>
+                    <p class="text-gray-600 mb-6">For ultimate supporters</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$29</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>All Community Champion benefits</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>Premium discounts (25-40% off)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>15% contribution to donation pool</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>Exclusive member-only events</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>Triple entries for donation draws</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                            <span>Personalized business recommendations</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block text-center bg-indigo-100 text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-200 transition duration-300">Select Plan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Hero Stories</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">What our members and businesses are saying</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah K.</h4>
+                            <p class="text-gray-600 text-sm">HeroPass Member</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"I've saved over $300 in just three months using HeroPass at my favorite local spots. The discounts are great, but knowing I'm helping support these businesses is what really makes it worthwhile."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-store text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Mike's Diner</h4>
+                            <p class="text-gray-600 text-sm">HeroPass Partner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"HeroPass has brought us dozens of new regular customers. Last month we received an unexpected $1,200 donation from the pool that helped us upgrade our equipment. This program is game-changing for small businesses."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faq" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Everything you need to know about HeroPass</p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-medium text-gray-900">How does the donation pool work?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300 transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 hidden">
+                            <p class="text-gray-600">5-15% of each membership fee (depending on your plan) goes into our pooled donation fund. Each time a member makes a purchase at a partner business, that business is entered into a monthly drawing. Winners receive surprise donations ranging from $500 to $2000 to help them grow and thrive.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-medium text-gray-900">Can I cancel my membership anytime?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300 transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 hidden">
+                            <p class="text-gray-600">Absolutely! There are no long-term contracts with HeroPass. You can cancel anytime through your account settings, and your membership will remain active until the end of your current billing period.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-medium text-gray-900">How do I use my HeroPass discounts?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300 transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 hidden">
+                            <p class="text-gray-600">When you sign up, you'll get access to our mobile app which shows all nearby partner businesses and your available discounts. Just show your digital HeroPass card at checkout, and the business will apply your discount. Some locations may scan a QR code for verification.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-medium text-gray-900">What areas is HeroPass available in?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform duration-300 transform"></i>
+                        </button>
+                        <div class="px-6 pb-6 hidden">
+                            <p class="text-gray
